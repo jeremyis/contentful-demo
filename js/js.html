@@ -1,0 +1,22 @@
+
+<html>
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/contentful@latest/dist/contentful.browser.min.js"></script>
+
+  <script>
+    var client = contentful.createClient({
+      accessToken: 'XmukiVCOzYh1U2xusphnMyUOQNJIl-chN2-kZxgQ13k',
+      space: 'xaodcxsn60t6'
+    })
+
+    client.getEntries('blogPost')
+      .then((response) => {
+        document.getElementById('content').innerHTML = client.parseEntries(response).items[0].fields.title;
+      })
+      .catch(console.error);
+  </script>
+</head>
+<body>
+  <div id="content" class="content-container"></div>
+</body>
+</html>
